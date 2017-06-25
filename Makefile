@@ -10,15 +10,17 @@ clean:
 	rm /tmp/backpack.sock
 
 start_django: .venv
-	source .venv/bin/activate && \
+	echo "I'll need sudo access to start uWSGI."
+	sudo echo "Thanks!" || exit 1
+	sudo bash -c "source .venv/bin/activate && \
 		cd backpack_py && \
-		uwsgi --ini uwsgi.ini &
-	sleep 5
-	chmod 777 /tmp/backpack.sock
+		uwsgi --ini uwsgi.ini --uid www-data --gid www-data &"
 
 stop_django:
-	pkill uwsgi
-	rm /tmp/backpack.sock
+	echo "I'll need sudo access to stop uWSGI."
+	sudo echo "Thanks!" || exit 1
+	sudo pkill -9 uwsgi
+	sudo rm /tmp/backpack.sock
 
 install_nginx_config:
 	echo "I'll need sudo access to install configs."
