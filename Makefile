@@ -34,6 +34,7 @@ install_apt_packages:
 	echo "I'll need sudo access to install packages."
 	sudo echo "Thanks!" || exit 1
 	sudo apt-get -y install \
+		hostapd \
 		dnsmasq \
 		nginx \
 		python3 \
@@ -50,6 +51,16 @@ uninstall_nginx_config:
 	echo "I'll need sudo access to uninstall configs."
 	sudo echo "Thanks!" || exit 1
 	sudo rm -v /etc/nginx/sites-available/backpack /etc/nginx/sites-enabled/backpack
+
+install_hostapd:
+	echo "I'll need sudo access to install hostapd."
+	sudo echo "Thanks!" || exit 1
+	sudo ln -sf `pwd`/conf/etc/hostapd/backpack.conf /etc/hostapd/backpack.conf
+
+uninstall_hostapd:
+	echo "I'll need sudo access to uninstall hostapd."
+	sudo echo "Thanks!" || exit 1
+	sudo rm /etc/hostapd/backpack.conf
 
 install_dnsmasq:
 	echo "I'll need sudo access to install dnsmasq."

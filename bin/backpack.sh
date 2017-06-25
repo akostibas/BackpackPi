@@ -18,7 +18,7 @@ function start() {
 	sysctl net.ipv4.ip_forward=1
 	iptables -t nat -A POSTROUTING -s 10.13.81.0/24 ! -d 10.13.81.0/24 -j MASQUERADE
 	ifup uap0
-	hostapd /etc/hostapd/hostapd.conf
+	hostapd /etc/hostapd/backpack.conf
 }
 
 if [[ "$1" == "start" ]]; then
