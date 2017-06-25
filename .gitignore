@@ -1,2 +1,6 @@
+db.sqlite3
 *.swp
+
+# Python related things
+__pycache__
 .venv/
