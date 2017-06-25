@@ -49,5 +49,5 @@ server {
 		uwsgi_param  SERVER_NAME	$server_name;
 	}
 
-	rewrite ^.*$ / last;
+	#rewrite ^.*$ / last;
 }
