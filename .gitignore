@@ -1,6 +1,8 @@
 db.sqlite3
 *.swp
 
+secrets/
+
 # Python related things
 __pycache__
 .venv/

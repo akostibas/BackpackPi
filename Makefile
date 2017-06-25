@@ -9,7 +9,15 @@ clean:
 	rm -rf .venv
 	rm /tmp/backpack.sock
 
-start_django: .venv
+secrets/django_secret_key:
+	echo "I'll need sudo access to make secrets."
+	sudo echo "Thanks!" || exit 1
+	cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1 \
+		> secrets/django_secret_key
+	sudo chown :www-data secrets/django_secret_key
+	sudo chmod 640 secrets/django_secret_key
+
+start_django: .venv secrets/django_secret_key
 	echo "I'll need sudo access to start uWSGI."
 	sudo echo "Thanks!" || exit 1
 	sudo bash -c "source .venv/bin/activate && \
