@@ -22,6 +22,16 @@ stop_django:
 	sudo pkill -9 uwsgi
 	sudo rm /tmp/backpack.sock
 
+install_apt_packages:
+	echo "I'll need sudo access to install packages."
+	sudo echo "Thanks!" || exit 1
+	sudo apt-get -y install \
+		dnsmasq \
+		nginx \
+		python3 \
+		python3-pip \
+		python3-virtualenv
+
 install_nginx_config:
 	echo "I'll need sudo access to install configs."
 	sudo echo "Thanks!" || exit 1
