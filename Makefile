@@ -51,6 +51,11 @@ uninstall_nginx_config:
 	sudo echo "Thanks!" || exit 1
 	sudo rm -v /etc/nginx/sites-available/backpack /etc/nginx/sites-enabled/backpack
 
+install_dnsmasq:
+	echo "I'll need sudo access to install dnsmasq."
+	sudo echo "Thanks!" || exit 1
+	sudo ln -sf `pwd`/conf/etc/dnsmasq.conf /etc/.
+
 install_systemd:
 	echo "I'll need sudo access to install systemd configs."
 	sudo echo "Thanks!" || exit 1
