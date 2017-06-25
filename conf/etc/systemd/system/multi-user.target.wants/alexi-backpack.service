@@ -1,0 +1,8 @@
+[Unit]
+Description=Run Alexi's Backpack Access Point
+
+[Service]
+ExecStart=/usr/local/bin/alexi-backpack.sh start
+
+[Install]
+WantedBy=multi-user.target
