@@ -50,3 +50,19 @@ uninstall_nginx_config:
 	echo "I'll need sudo access to uninstall configs."
 	sudo echo "Thanks!" || exit 1
 	sudo rm -v /etc/nginx/sites-available/backpack /etc/nginx/sites-enabled/backpack
+
+install_systemd:
+	echo "I'll need sudo access to install systemd configs."
+	sudo echo "Thanks!" || exit 1
+	sudo ln -sf `pwd`/bin/backpack.sh /usr/local/bin/.
+	sudo ln -sf `pwd`/conf/etc/systemd/system/multi-user.target.wants/backpack.service \
+		/lib/systemd/system/.
+	sudo ln -sf /lib/system/system/backpack.service \
+		/etc/systemd/system/multi-user.target.wants/.
+
+uninstall_systemd:
+	echo "I'll need sudo access to uninstall systemd configs."
+	sudo echo "Thanks!" || exit 1
+	sudo rm /etc/systemd/system/multi-user.target.wants/backpack.service
+	sudo rm /lib/systemd/system/backpack.service
+	sudo rm /usr/local/bin/backpack.sh

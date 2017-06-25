@@ -6,7 +6,7 @@ PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 function stop() {
 	sysctl net.ipv4.ip_forward=0
 	pkill hostapd
-	ifdown uap0
+	ifconfig uap0 down
 	service dnsmasq stop
 }
 
