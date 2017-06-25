@@ -1,14 +1,13 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from django import template
 
 import subprocess
 
 def index(requet):
-    return HttpResponse('Hello')
-
-def temp_is(request):
-    temp = get_temp()
-    html = "<html><body>Current cpu temp: {0}</body></html>".format(temp)
+    t = template.loader.get_template('guestbook/guestbook.html')
+    c = dict({'temp': get_temp()})
+    html = t.render(c)
     return HttpResponse(html)
 
 def get_temp():

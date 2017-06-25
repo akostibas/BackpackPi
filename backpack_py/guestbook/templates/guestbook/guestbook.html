@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Current Time</title>
+</head>
+<body>
+    {# This is a comment #}
+
+    {# check the existence of now variable in the template using if tag #}
+
+    {% if temp %}
+        <p> The current CPU temp is: {{ temp }}</p>
+    {% else %}
+        <p>now variable is not available</p>
+    {% endif %}
+
+</body>
+</html>
