@@ -14,7 +14,7 @@ function start() {
 	ifconfig uap0 || \
 		iw dev wlan0 interface add uap0 type __ap
 
-	service dnsmasq restart
+	service dnsmasq start
 	sysctl net.ipv4.ip_forward=1
 	iptables -t nat -A POSTROUTING -s 10.13.81.0/24 ! -d 10.13.81.0/24 -j MASQUERADE
 	ifup uap0
