@@ -4,3 +4,6 @@ db.sqlite3
 # Python related things
 __pycache__
 .venv/
+
+# Django related things
+backpack_py/static

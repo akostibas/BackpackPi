@@ -25,7 +25,7 @@ SECRET_KEY = 'bs=_w78oi_x*p9i@bqdq@6&283gn7895#v5cr1jlx*+p-9#me9'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['contra.local']
+ALLOWED_HOSTS = ['contra.local', '192.168.1.58', '127.0.0.1']
 
 
 # Application definition
@@ -116,5 +116,5 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
-
+STATIC_ROOT = os.path.join(BASE_DIR, "static/")
 STATIC_URL = '/static/'
