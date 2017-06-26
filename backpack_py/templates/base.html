@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}Backpack Server{% endblock %}</title>
+</head>
+<body>
+    <nav>
+        <a href="#">Home</a>
+    </nav>
+
+    {% block content %}
+
+    {% endblock %}
+
+    <hr>
+
+    {% block footer %}
+        {% if temp %}
+        <div>The current server temp is: {{ temp }}</div>
+        {% endif %}
+    {% endblock %}
+
+</body>
+</html>

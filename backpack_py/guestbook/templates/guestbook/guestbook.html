@@ -1,19 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Current Time</title>
-</head>
-<body>
-    {# This is a comment #}
+{% extends "base.html" %}
 
-    {# check the existence of now variable in the template using if tag #}
 
-    {% if temp %}
-        <p> The current CPU temp is: {{ temp }}</p>
-    {% else %}
-        <p>now variable is not available</p>
-    {% endif %}
+{% block content %}
+<p>Content!</p>
+{% endblock %}
 
-</body>
-</html>
+{% if temp %}
+<div>The current CPU temp is: {{ temp }}</div>
+{% endif %}
