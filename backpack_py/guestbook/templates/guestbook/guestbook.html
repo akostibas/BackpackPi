@@ -3,8 +3,15 @@
 
 {% block content %}
 <p>Content!</p>
+
+<ul>
+    {% for post in posts %}
+        <li>
+                <span class='post-id'>{{ post.id }}</span>)
+                <span class='post-message'>{{ post.message }}</span>
+        </li>
+    {% endfor %}
+</ul>
+
 {% endblock %}
 
-{% if temp %}
-<div>The current CPU temp is: {{ temp }}</div>
-{% endif %}
