@@ -19,6 +19,7 @@ from django.contrib import admin
 from guestbook import views
 
 urlpatterns = [
+    url(r'^$', views.index),
     url(r'^guestbook/', include('guestbook.urls')),
     url(r'^admin/', admin.site.urls),
 ]
