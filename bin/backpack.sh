@@ -4,6 +4,10 @@ set -eux -o pipefail
 PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 
 function stop() {
+    pushd /var/www/BackpackPi
+    make stop_django
+    popd
+
 	sysctl net.ipv4.ip_forward=0
 	pkill hostapd
 	ifconfig uap0 down
@@ -11,6 +15,10 @@ function stop() {
 }
 
 function start() {
+    pushd /var/www/BackpackPi
+    make start_django
+    popd
+
 	ifconfig uap0 || \
 		iw dev wlan0 interface add uap0 type __ap
 
