@@ -21,7 +21,7 @@ def index(request):
 
 def post(request):
     if request.method == "POST":
-        f = GuesPostForm(request.POST)
+        f = GuestPostForm(request.POST)
         if f.is_valid():
             f.save()
 

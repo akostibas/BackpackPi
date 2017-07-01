@@ -1,9 +1,11 @@
 [Unit]
 Description=Run Backpack Access Point
+After=network.target
 
 [Service]
 ExecStart=/usr/local/bin/backpack.sh start
 ExecStop=/usr/local/bin/backpack.sh stop
+Restart=on-failure
 
 [Install]
 WantedBy=multi-user.target
