@@ -24,6 +24,7 @@ start_django: .venv secrets/django_secret_key
 	sudo echo "Thanks!" || exit 1
 	sudo bash -c "source .venv/bin/activate && \
 		cd backpack_py && \
+		yes yes | python manage.py collectstatic && \
 		uwsgi --ini uwsgi.ini --uid www-data --gid www-data &"
 
 .PHONY: stop_django
