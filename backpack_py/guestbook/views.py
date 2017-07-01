@@ -1,8 +1,7 @@
 from django.shortcuts import redirect
 from django.shortcuts import render
 from django.shortcuts import render_to_response
-from django.http import HttpResponseRedirect
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django import template
 from .models import GuestPost
 from .forms import GuestPostForm
@@ -24,8 +23,11 @@ def post(request):
         f = GuestPostForm(request.POST)
         if f.is_valid():
             f.save()
+        return render_to_response('guestbook/post.html', {
+            'temp': get_temp()
+            })
 
-    return index(request)
+    return HttpResponseRedirect('/guestbook/')
 
 def get_temp():
     command = 'sudo vcgencmd measure_temp'

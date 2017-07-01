@@ -1,8 +1,7 @@
 {% extends "base.html" %}
 
-
 {% block content %}
-<p>Portable Backpack Guestbook</p>
+<h1>Portable Backpack Guestbook</h1>
 
 <form action='post/' method='post'>
     {% csrf_token %}
@@ -10,10 +9,11 @@
     <input type='submit' value='submit' />
 </form>
 
-<ul>
+<ul id='posts'>
     {% for post in posts %}
         <li>
-            <span class='post-id'>{{ post.id }}</span>)
+            #<span class='post-id'>{{ post.id }}</span>,
+            <span class='post-date'>{{ post.created_on }}</span> -
             <span class='post-message'>{{ post.message }}</span>
         </li>
     {% endfor %}

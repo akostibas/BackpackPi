@@ -15,11 +15,15 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
+from django.views.generic.base import RedirectView
 
+from guestbook import views
 from guestbook import views
 
 urlpatterns = [
-    url(r'^$', views.index),
     url(r'^guestbook/', include('guestbook.urls')),
     url(r'^admin/', admin.site.urls),
+    # Redirect everything to the guestbook
+    url(r'^.*$', RedirectView.as_view(
+        url='/guestbook', permanent=False), name='index'),
 ]
