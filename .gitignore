@@ -1,2 +1,11 @@
+db.sqlite3
 *.swp
+
+secrets/
+
+# Python related things
+__pycache__
 .venv/
+
+# Django related things
+backpack_py/static

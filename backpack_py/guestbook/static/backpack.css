@@ -1,0 +1,28 @@
+* {
+        font-family: arial;
+}
+
+body {
+    padding: 0px;
+}
+
+nav {
+    padding: 10px;
+    margin: 0px 0px 10px 0px;
+    background-color: lightgray;
+}
+
+nav.a {
+    text-color: white;
+}
+
+h1 {
+}
+
+li.listform {
+
+}
+
+ul.posts {
+        list-style-type: none;
+}

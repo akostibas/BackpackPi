@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}Backpack Server{% endblock %}</title>
+    {% load static %}
+    <link rel='stylesheet' href='{% static 'backpack.css' %}' />
+</head>
+<body>
+    <nav>
+        <a href="/#">Home</a>
+    </nav>
+
+    {% block content %}
+
+    {% endblock %}
+
+    <hr>
+
+    {% block footer %}
+        {% load tz %}{% localtime on %}
+        <span>{% now "N j, Y, P" %}</span>
+        {% endlocaltime %}
+
+        {% if temp %}
+        <span>| Current server temp is: {{ temp }}</span>
+        {% endif %}
+    {% endblock %}
+
+</body>
+</html>
